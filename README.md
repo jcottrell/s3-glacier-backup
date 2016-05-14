@@ -1,7 +1,8 @@
 # S3 Glacier Backup
 
 Setup:
-* InstallS3 Tools - http://s3tools.org/download (Please install according to it's instructions.)
+* InstallS3 Tools - http://s3tools.org/download (Please install according to it's instructions;
+  consider `brew install s3cmd`)
 * Install p7zip - http://sourceforge.net/projects/p7zip/ (brew install p7zip or available via apt on many systems)
 * Run `s3cmd --configure` and enter your AWS Credentials
 * Create the S3 bucket you wish to backup to.  If you want backups to go to glacier, set a lifecycle rule in the bucket
@@ -10,15 +11,12 @@ Setup:
 * Set backup.sh to be executable `chmod u+x backup.sh`
 
 To run a backup, run `./backup.sh`.  If uploads fail or if you are putting files into the folder some other way,
-you can run `./backup.sh --noBackup` to just perform uploads.
+you can run `./backup.sh --noBackup` to skip the backup and just perform uploads from the backup folder.
 
-If the script fails
+Note: This tool does NOT preserve usernames.
 
-Note: This tool does NOT backup usernames.
-
-(From the p7zip readme)
-CAUTION :
----------
+*From the p7zip readme*
+## CAUTION :
 
 - FIRST : DO NOT USE the 7-zip format for backup purpose on Linux/Unix because :
   - 7-zip does not store the owner/group of the file
