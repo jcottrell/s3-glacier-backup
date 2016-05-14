@@ -8,7 +8,8 @@ Setup:
 * Create the S3 bucket you wish to backup to.  If you want backups to go to glacier, set a lifecycle rule in the bucket
   to send everything to glacier after one day. (https://aws.amazon.com/blogs/aws/archive-s3-to-glacier/)
 * Configure the variables in the script (backup.sh)
-* Set backup.sh to be executable `chmod u+x backup.sh`
+
+*The backup script should run upon cloning but if not, set backup.sh to be executable `chmod u+x backup.sh`*
 
 To run a backup, run `./backup.sh`.  If uploads fail or if you are putting files into the folder some other way,
 you can run `./backup.sh --noBackup` to skip the backup and just perform uploads from the backup folder.
